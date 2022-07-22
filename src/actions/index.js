@@ -23,7 +23,7 @@ export const addFavorite = (favoritePokemon) => {
   };
 };
 
-export const rmvFavorite = (id) => {
+export const removeFavorite = (id) => {
   return {
     type: RMV_FAVORITE,
     payload: id,
