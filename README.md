@@ -1,70 +1,39 @@
-# Getting Started with Create React App
+# Requirements
+Build a React application that satisfies the attached screenshots as described below:
+- As a user, when I first open the application, I should be in the Home page by default, and I should see the app header as well as the page content.
+  
+- #### Header Acceptance Criteria:
+  - As a user navigating to **"Pokemon"** app, I should see the app header which includes the application name "Pokemon" and favorites icon.
+  - Clicking on favorites icon navigates to **"Favorites"** page *(screen #2)*, while clicking the application name navigates back to the **Home page** *(screen #1)*.
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+- #### Home Page Acceptance Criteria:
+  - As a user, I should see each pokemon displayed as a card that represents the pokemon name, image and strength, in addition to "Add to Favorites" button.
+  - As a user, I expect to see a loading indicator while loading the pokemons, or an error message if there's any.
+  - If I Click on **"Add to Favorites"** button, then the button appearance should change to represent that the pokemon is added to favorites, and the number of favorites in the header should also increase and vice-versa.
 
-## Available Scripts
+- #### Favorites Page Acceptance Criteria:
+  - As I user, when I navigate to the Favorites page, then I should see a list of all the pokemons I have added to favorites earlier from the Home page.
+  - If the Favorites list is empty, then I should see a descriptive text saying *"Oops! Looks like you  haven't added any pokemons yet."* and I should also see a call-to-action button that takes me back to the Home page.
+  - If I click on "Remove" button of a specific pokemon, then it be should removed from the favorites list as well as being *unselected* in the Home page (i.e., the pokemon card "Add to Favorites" button in home page should turn to the unselected state.)
+  - If I click on "Remove All" button, then I expect the list to become empty, and none of the pokemons in the Home page to be selected.
+  
 
-In the project directory, you can run:
+> #### Bonus: 
+> - Given that I have already added some pokemons to Favorites, then when I refresh the page, I should still have the pokemons in the list as before.
 
-### `npm start`
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+# Technical guidelines 
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+- Build a React application that satisfies the above acceptance criteria.
+- For styles, use whatever works for you (e.g., vanilla css, preProcessors, css-in-jss, etc.). The goal is to have a responsive design and to avoid class names collision.
+- Use Redux for global state management.
+- A high test coverage is required. Fell free to use Enzyme or react-testing-library.
+- [Prefered]: Use Typescript for types safety.
+- Find the pokemon json data attached in the zip file. You can fetch it in the run time from **/pokemon.json**
 
-### `npm test`
+> Hint: You can add the pokemon.json to /public directory, and then in your API call you'd fetch it as **GET /pokemon.json**
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
-
-### `npm run build`
-
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
-
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
-
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
-
-### `npm run eject`
-
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
-
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
-
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
-
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+# Notes
+- Consider that this application should be production-ready. Follow the common best-practices even if it's not necessary on such small task.
+- A well-designed and clean solution is more important than a complete solution.
+- Please don't add the code on GitHub or any other source control provider.

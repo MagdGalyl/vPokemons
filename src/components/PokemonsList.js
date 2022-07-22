@@ -1,7 +1,14 @@
 import React, { useEffect } from "react";
 import { connect } from "react-redux";
 import { useDispatch } from "react-redux";
-import { SimpleGrid, Heading } from "@chakra-ui/react";
+import {
+  SimpleGrid,
+  Heading,
+  Text,
+  useBreakpointValue,
+  Stack,
+  Flex,
+} from "@chakra-ui/react";
 
 import { fetchPokemons } from "../actions";
 import PokemonBox from "./PokemonBox";
@@ -36,13 +43,32 @@ function PokemonsList(props) {
 
   return (
     <div>
-      <Heading as="h1" size="4xl" noOfLines={1}>
-        List of Pokemons
+      <Heading fontSize={{ base: "3xl", md: "4xl", lg: "5xl" }}>
+        <Text
+          as={"span"}
+          position={"relative"}
+          _after={{
+            content: "''",
+            width: "full",
+            height: useBreakpointValue({ base: "20%", md: "30%" }),
+            position: "absolute",
+            bottom: 1,
+            left: 0,
+            bg: "red.400",
+            zIndex: -1,
+          }}
+        >
+          List of Pokemons
+        </Text>
       </Heading>
 
-      <SimpleGrid columns={3} spacing={10}>
-        {renderList()}
-      </SimpleGrid>
+      <Stack minH={"100vh"} direction={{ base: "column", md: "row" }}>
+        <Flex p={8} flex={1} align={"center"} justify={"center"}>
+          <SimpleGrid columns={3} spacing={10}>
+            {renderList()}
+          </SimpleGrid>
+        </Flex>
+      </Stack>
     </div>
   );
 }
