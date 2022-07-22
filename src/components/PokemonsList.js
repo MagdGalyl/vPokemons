@@ -23,19 +23,19 @@ function PokemonsList(props) {
   console.log(props.pokemons.pokemonsList);
 
   const renderList = () => {
-    return props.pokemons.pokemonsList.map((poke) => {
-      const { id, base, name, img } = poke;
-      const { Attack: atk, Defense: def } = base;
-      const pName = name.english;
+    return props.pokemons.pokemonsList.map((pokemon) => {
+      const { id, base, name, img } = pokemon;
+      const { Attack: attack, Defense: defense } = base;
+      const pokemonName = name.english;
       return (
         <div key={id}>
           <PokemonBox
             id={id}
-            name={pName}
-            atk={atk}
-            def={def}
+            pokemonName={pokemonName}
+            attack={attack}
+            defense={defense}
             imgSrc={img}
-            poke={poke}
+            pokemon={pokemon}
           />
         </div>
       );

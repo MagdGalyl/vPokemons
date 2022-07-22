@@ -1,7 +1,9 @@
 import React from "react";
 import { Box, Image, Flex, Tag, Button, Text, Center } from "@chakra-ui/react";
 
-function PokemonBox() {
+function PokemonBox(props) {
+  const { id, pokemonName, attack, defense, imgSrc, pokemon } = props;
+
   return (
     <Box
       bg="white"
@@ -16,7 +18,8 @@ function PokemonBox() {
         boxSize="100%"
         objectFit="cover"
         src="https://assets.pokemon.com/assets/cms2/img/pokedex/full/143.png"
-        alt="alt"
+        // {imgSrc}
+        alt={pokemonName}
       />
       <Box
         mt="1"
@@ -25,14 +28,20 @@ function PokemonBox() {
         lineHeight="tight"
         noOfLines={1}
       >
-        {"Pokemon Name"}
+        {pokemonName}
       </Box>
       <Flex p={1} flex={1} align={"center"} justify={"center"}>
-        <Tag size="lg" variant="outline" colorScheme="red" mr={1}>
-          ATK: 1m
+        <Tag
+          size="lg"
+          variant="outline"
+          colorScheme="red"
+          mr={1}
+          borderRadius="full"
+        >
+          Attack: {attack}
         </Tag>
-        <Tag size="lg" variant="outline" colorScheme="blue">
-          DEF: 10m
+        <Tag size="lg" variant="outline" colorScheme="blue" borderRadius="full">
+          Defense: {defense}
         </Tag>
       </Flex>
       <Button w={"full"} maxW={"md"} colorScheme="blue">
