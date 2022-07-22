@@ -5,10 +5,10 @@ function PokemonBox() {
   return (
     <div>
       <Box
-        bg="tomato"
+        // bg="tomato"
         w="100%"
         // p={4}
-        color="white"
+        // color="white"
         borderWidth="1px"
         borderRadius="lg"
         overflow="hidden"
@@ -28,19 +28,13 @@ function PokemonBox() {
         >
           {"Pokemon Name"}
         </Box>
+        <Tag size="lg" variant="outline" colorScheme="red">
+          ATK: 1m
+        </Tag>
+        <Tag size="lg" variant="outline" colorScheme="blue">
+          DEF: 10m
+        </Tag>
       </Box>
-      <Tag size="lg" variant="outline" colorScheme="red">
-        ATK: 1m
-      </Tag>
-      <Tag size="lg" variant="outline" colorScheme="blue">
-        DEF: 10m
-      </Tag>
-      <Tag size="md" key="md" variant="outline" colorScheme="blue">
-        <TagLabel>Blue</TagLabel>
-      </Tag>
-      <Badge variant="outline" colorScheme="green">
-        Default
-      </Badge>
     </div>
   );
 }
