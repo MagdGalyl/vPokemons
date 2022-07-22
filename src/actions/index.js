@@ -16,10 +16,10 @@ export const fetchPokemons = () => {
   };
 };
 
-export const addFavorite = (poke2) => {
+export const addFavorite = (favoritePokemon) => {
   return {
     type: ADD_FAVORITE,
-    payload: poke2,
+    payload: favoritePokemon,
   };
 };
 

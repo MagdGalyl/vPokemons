@@ -2,7 +2,11 @@ import React from "react";
 import { Box, Image, Flex, Tag, Button, Text, Center } from "@chakra-ui/react";
 
 function PokemonBox(props) {
-  const { id, pokemonName, attack, defense, imgSrc, pokemon } = props;
+  const { pokemonName, attack, defense, imgSrc, handleAddFavorite } = props;
+
+  const onFavoriteClick = (pokemon, id) => {
+    handleAddFavorite(props.id, props.pokemon);
+  };
 
   return (
     <Box
@@ -44,7 +48,12 @@ function PokemonBox(props) {
           Defense: {defense}
         </Tag>
       </Flex>
-      <Button w={"full"} maxW={"md"} colorScheme="blue">
+      <Button
+        w={"full"}
+        maxW={"md"}
+        colorScheme="blue"
+        onClick={onFavoriteClick}
+      >
         <Center>
           <Text>ADD TO FAVORITES</Text>
         </Center>
