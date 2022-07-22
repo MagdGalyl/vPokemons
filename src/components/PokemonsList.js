@@ -8,10 +8,10 @@ import {
   useBreakpointValue,
   Stack,
   Flex,
-  GridItem,
+  // GridItem,
 } from "@chakra-ui/react";
 
-import { fetchPokemons } from "../actions";
+import { fetchPokemons, addFavorite } from "../actions";
 import PokemonBox from "./PokemonBox";
 
 function PokemonsList(props) {
@@ -20,7 +20,14 @@ function PokemonsList(props) {
     dispatch(fetchPokemons());
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
-  console.log(props.pokemons.pokemonsList);
+  // console.log(props, "props");
+  // console.log(props.pokemons.pokemonsList, "pokemonsList");
+  console.log(props.favorites, "favoritesList");
+
+  const handleAddFavorite = (id, pokemon) => {
+    let favoritePokemon = { [id]: pokemon };
+    props.addFavorite(favoritePokemon);
+  };
 
   const renderList = () => {
     return props.pokemons.pokemonsList.map((pokemon) => {
@@ -36,6 +43,7 @@ function PokemonsList(props) {
             defense={defense}
             imgSrc={img}
             pokemon={pokemon}
+            handleAddFavorite={handleAddFavorite}
           />
         </div>
       );
@@ -76,9 +84,9 @@ function PokemonsList(props) {
 }
 
 const mapStateToProps = (state) => {
-  return { pokemons: state.pokemons };
+  return { pokemons: state.pokemons, favorites: state.favorites };
 };
 
-const mapDispatchToProps = { fetchPokemons };
+const mapDispatchToProps = { fetchPokemons, addFavorite };
 
 export default connect(mapStateToProps, mapDispatchToProps)(PokemonsList);
