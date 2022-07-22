@@ -1,41 +1,55 @@
 import React from "react";
-import { Box, Image, Badge, Tag, TagLabel } from "@chakra-ui/react";
+import { Box, Image, Flex, Tag, Button, Text, Center } from "@chakra-ui/react";
 
-function PokemonBox() {
+function PokemonBox(props) {
+  const { id, pokemonName, attack, defense, imgSrc, pokemon } = props;
+
   return (
-    <div>
+    <Box
+      bg="white"
+      w="100%"
+      p={4}
+      color="black"
+      // borderWidth="1px"
+      // borderRadius="lg"
+      // overflow="hidden"
+    >
+      <Image
+        boxSize="100%"
+        objectFit="cover"
+        src="https://assets.pokemon.com/assets/cms2/img/pokedex/full/143.png"
+        // {imgSrc}
+        alt={pokemonName}
+      />
       <Box
-        // bg="tomato"
-        w="100%"
-        // p={4}
-        // color="white"
-        borderWidth="1px"
-        borderRadius="lg"
-        overflow="hidden"
+        mt="1"
+        fontWeight="semibold"
+        as="h3"
+        lineHeight="tight"
+        noOfLines={1}
       >
-        <Image
-          boxSize="100%"
-          objectFit="cover"
-          src="https://assets.pokemon.com/assets/cms2/img/pokedex/full/143.png"
-          alt="alt"
-        />
-        <Box
-          mt="1"
-          fontWeight="semibold"
-          as="h3"
-          lineHeight="tight"
-          noOfLines={1}
-        >
-          {"Pokemon Name"}
-        </Box>
-        <Tag size="lg" variant="outline" colorScheme="red">
-          ATK: 1m
-        </Tag>
-        <Tag size="lg" variant="outline" colorScheme="blue">
-          DEF: 10m
-        </Tag>
+        {pokemonName}
       </Box>
-    </div>
+      <Flex p={1} flex={1} align={"center"} justify={"center"}>
+        <Tag
+          size="lg"
+          variant="outline"
+          colorScheme="red"
+          mr={1}
+          borderRadius="full"
+        >
+          Attack: {attack}
+        </Tag>
+        <Tag size="lg" variant="outline" colorScheme="blue" borderRadius="full">
+          Defense: {defense}
+        </Tag>
+      </Flex>
+      <Button w={"full"} maxW={"md"} colorScheme="blue">
+        <Center>
+          <Text>ADD TO FAVORITES</Text>
+        </Center>
+      </Button>
+    </Box>
   );
 }
 
