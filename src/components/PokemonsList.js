@@ -8,6 +8,7 @@ import {
   useBreakpointValue,
   Stack,
   Flex,
+  GridItem,
 } from "@chakra-ui/react";
 
 import { fetchPokemons } from "../actions";
@@ -41,6 +42,7 @@ function PokemonsList(props) {
     });
   };
 
+  const colSpan = useBreakpointValue({ base: 1, md: 2, lg: 3 });
   return (
     <div>
       <Heading fontSize={{ base: "3xl", md: "4xl", lg: "5xl" }}>
@@ -64,7 +66,7 @@ function PokemonsList(props) {
 
       <Stack minH={"100vh"} direction={{ base: "column", md: "row" }}>
         <Flex p={8} flex={1} align={"center"} justify={"center"}>
-          <SimpleGrid columns={3} spacing={10}>
+          <SimpleGrid columns={colSpan} spacing={10}>
             {renderList()}
           </SimpleGrid>
         </Flex>
