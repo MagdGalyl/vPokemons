@@ -1,0 +1,4 @@
+export const FETCH_POKEMONS = "FETCH_POKEMONS";
+export const ADD_FAVORITE = "ADD_FAVORITE";
+export const RMV_FAVORITE = "RMV_FAVORITE";
+export const RMV_ALL_FAVORITES = "RMV_ALL_FAVORITES";
