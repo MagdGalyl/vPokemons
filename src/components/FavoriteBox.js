@@ -2,30 +2,48 @@ import React from "react";
 import {
   Box,
   Image,
-  // useBreakpointValue,
+  useBreakpointValue,
   Spacer,
   Flex,
   Button,
+  Stack,
+  Heading,
+  HStack,
 } from "@chakra-ui/react";
 
 function FavoriteBox(props) {
   const { id, pokemonName, imgSrc, handleRemoveFavorite } = props;
   return (
     <div>
-      <Flex minWidth="max-content" alignItems="center" gap="2">
-        <Box p="2">
+      <Flex
+        p={2}
+        flex={1}
+        align={"center"}
+        justify={"center"}
+        // spacing="18px"
+        direction={{ base: "column", md: "row" }}
+      >
+        <Box maxW="18%">
           <Image
-            boxSize="40%"
+            // boxSize="100%"
             objectFit="cover"
             src="https://assets.pokemon.com/assets/cms2/img/pokedex/full/143.png"
             // {imgSrc}
             alt={pokemonName}
           />
         </Box>
+        <Box>
+          <Heading as="h3" size="lg">
+            {pokemonName}
+          </Heading>
+        </Box>
         <Spacer />
-        <Button colorScheme="red">Remove</Button>
+        <Box>
+          <Button colorScheme="red" variant="ghost">
+            Remove
+          </Button>
+        </Box>
       </Flex>
-      
     </div>
   );
 }
