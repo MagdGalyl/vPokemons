@@ -1,10 +1,4 @@
-import {
-  FETCH_POKEMONS,
-  // ADD_FAVORITE,
-  // RMV_FAVORITE,
-  // RMV_ALL_FAVORITES,
-} from "../actions/types";
-// import _ from "lodash";
+import { FETCH_POKEMONS } from "../actions/types";
 
 const initialState = { pokemonsList: [] };
 

@@ -1,8 +1,9 @@
 import React from "react";
+import { connect } from "react-redux";
 import { Box, Image, Flex, Tag, Button, Text, Center } from "@chakra-ui/react";
 
 function PokemonBox(props) {
-  const { pokemonName, attack, defense, imgSrc, handleAddFavorite } = props;
+  const { id, pokemonName, attack, defense, imgSrc, handleAddFavorite } = props;
 
   const onFavoriteClick = (pokemon, id) => {
     handleAddFavorite(props.id, props.pokemon);
@@ -21,8 +22,8 @@ function PokemonBox(props) {
       <Image
         boxSize="100%"
         objectFit="cover"
-        src="https://assets.pokemon.com/assets/cms2/img/pokedex/full/143.png"
-        // {imgSrc}
+        // src="https://assets.pokemon.com/assets/cms2/img/pokedex/full/143.png"
+        src={imgSrc}
         alt={pokemonName}
       />
       <Box
@@ -53,6 +54,7 @@ function PokemonBox(props) {
         maxW={"md"}
         colorScheme="blue"
         onClick={onFavoriteClick}
+        isDisabled={props.favorites.hasOwnProperty(id) ? `disabled` : null}
       >
         <Center>
           <Text>ADD TO FAVORITES</Text>
@@ -61,5 +63,10 @@ function PokemonBox(props) {
     </Box>
   );
 }
+const mapStateToProps = (state) => {
+  return { favorites: state.favorites };
+};
 
-export default PokemonBox;
+// const mapDispatchToProps = {  };
+
+export default connect(mapStateToProps)(PokemonBox);

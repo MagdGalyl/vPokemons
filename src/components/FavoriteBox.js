@@ -6,9 +6,7 @@ import {
   Spacer,
   Flex,
   Button,
-  // Stack,
   Heading,
-  // HStack,
 } from "@chakra-ui/react";
 
 function FavoriteBox(props) {
@@ -31,8 +29,8 @@ function FavoriteBox(props) {
           <Image
             // boxSize="100%"
             objectFit="cover"
-            src="https://assets.pokemon.com/assets/cms2/img/pokedex/full/143.png"
-            // {imgSrc}
+            // src="https://assets.pokemon.com/assets/cms2/img/pokedex/full/143.png"
+            src={imgSrc}
             alt={pokemonName}
           />
         </Box>

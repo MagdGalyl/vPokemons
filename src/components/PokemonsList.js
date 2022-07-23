@@ -9,6 +9,7 @@ import {
   Stack,
   Flex,
   // GridItem,
+  Spinner,
 } from "@chakra-ui/react";
 
 import { fetchPokemons, addFavorite } from "../actions";
@@ -48,6 +49,19 @@ function PokemonsList(props) {
   };
 
   const colSpan = useBreakpointValue({ base: 1, md: 2, lg: 3 });
+  let renderPokemons =
+    props.pokemons.pokemonsList.length === 0 ? (
+      <Spinner
+        thickness="4px"
+        speed="0.65s"
+        emptyColor="gray.200"
+        color="blue.500"
+        size="xl"
+      />
+    ) : (
+      renderList()
+    );
+
   return (
     <div>
       <Heading fontSize={{ base: "3xl", md: "4xl", lg: "5xl" }}>
@@ -72,7 +86,7 @@ function PokemonsList(props) {
       <Stack minH={"100vh"} direction={{ base: "column", md: "row" }}>
         <Flex p={8} flex={1} align={"center"} justify={"center"}>
           <SimpleGrid columns={colSpan} spacing={10}>
-            {renderList()}
+            {renderPokemons}
           </SimpleGrid>
         </Flex>
       </Stack>
