@@ -7,7 +7,7 @@ import {
   IconButton,
   useColorModeValue,
   Container,
-  Badge,
+  // Badge,
 } from "@chakra-ui/react";
 import { StarIcon } from "@chakra-ui/icons";
 
@@ -31,17 +31,34 @@ function Header(props) {
               </Link>
             </Flex> */}
 
-            <Flex className="item-head">
+            <Flex
+              // className="item-head"
+              position="relative"
+              display="inline-block"
+            >
               <Link to="/favorites">
-                <span className="notify-badge-head">
+                <Box
+                  position="absolute"
+                  right="-2"
+                  top="0"
+                  bg="red"
+                  textAlign="center"
+                  borderRadius="18"
+                  color="white"
+                  padding="2px 5px"
+                  fontSize="12px"
+                  fontWeight="bold"
+                  zIndex="10"
+                >
                   {Object.values(props.favorites).length}
-                </span>
+                </Box>
 
                 <IconButton
                   colorScheme="blue"
                   aria-label="Favorites Icon"
                   size="md"
                   icon={<StarIcon />}
+                  overflow="visible"
                 ></IconButton>
               </Link>
             </Flex>
