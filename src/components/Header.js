@@ -32,22 +32,10 @@ function Header(props) {
               </Link>
             </Flex> */}
 
-            {/* <Box position="relative">
+            <Flex className="item-head">
               <Link to="/favorites">
-                <Badge
-                  colorScheme="red"
-                  position="absolute"
-                  top="0%"
-                  right="0%"
-                  left="80%"
-                  bottom="70%"
-                  display="flex"
-                  alignItems="center"
-                  justifyContent="center"
-                  zIndex="99"
-                >
-                  888
-                </Badge>
+                <span className="notify-badge-head">20</span>
+
                 <IconButton
                   colorScheme="blue"
                   aria-label="Favorites Icon"
@@ -55,14 +43,7 @@ function Header(props) {
                   icon={<StarIcon />}
                 ></IconButton>
               </Link>
-            </Box> */}
-
-            <div className="badge-block">
-              <div className="skype svg_icons"></div>
-              <span className="e-badge e-badge-success e-badge-overlap e-badge-notification">
-                99+
-              </span>
-            </div>
+            </Flex>
           </Flex>
         </Box>
       </Container>
