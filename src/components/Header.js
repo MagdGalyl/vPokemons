@@ -12,7 +12,6 @@ import {
 import { StarIcon } from "@chakra-ui/icons";
 
 function Header(props) {
-  console.log(Object.values(props.favorites).length);
   return (
     <>
       <Container maxW="full">
@@ -34,7 +33,9 @@ function Header(props) {
 
             <Flex className="item-head">
               <Link to="/favorites">
-                <span className="notify-badge-head">20</span>
+                <span className="notify-badge-head">
+                  {Object.values(props.favorites).length}
+                </span>
 
                 <IconButton
                   colorScheme="blue"
