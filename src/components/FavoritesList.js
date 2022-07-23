@@ -16,16 +16,11 @@ import {
   Container,
 } from "@chakra-ui/react";
 
-import { removeFavorite } from "../actions";
+import { removeFavorite, rmvAllFavorites } from "../actions";
 import FavoriteBox from "./FavoriteBox";
 
 function FavoritesList(props) {
-  // console.log(props, "props");
-  // console.log(props.favorites, "favoritesList OOP");
-
   const handleRemoveFavorite = (id) => {
-    // let favoritePokemon = { [id]: pokemon };
-    console.log(id, "from list");
     props.removeFavorite(id);
   };
 
@@ -47,7 +42,6 @@ function FavoritesList(props) {
     });
   };
 
-  // const colSpan = useBreakpointValue({ base: 1, md: 1, lg: 1 });
   return (
     <div>
       <Container maxW="4xl">
@@ -89,6 +83,9 @@ function FavoritesList(props) {
             variant="outline"
             bg="whiteAlpha.900"
             _hover={{ bg: "red", color: "white" }}
+            onClick={() => {
+              props.rmvAllFavorites();
+            }}
           >
             <Center>
               <Text>Remove All</Text>
@@ -104,6 +101,6 @@ const mapStateToProps = (state) => {
   return { favorites: state.favorites };
 };
 
-const mapDispatchToProps = { removeFavorite };
+const mapDispatchToProps = { removeFavorite, rmvAllFavorites };
 
 export default connect(mapStateToProps, mapDispatchToProps)(FavoritesList);

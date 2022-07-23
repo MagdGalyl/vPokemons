@@ -2,20 +2,19 @@ import React from "react";
 import {
   Box,
   Image,
-  useBreakpointValue,
+  // useBreakpointValue,
   Spacer,
   Flex,
   Button,
-  Stack,
+  // Stack,
   Heading,
-  HStack,
+  // HStack,
 } from "@chakra-ui/react";
 
 function FavoriteBox(props) {
-  const { id, pokemonName, imgSrc, handleRemoveFavorite } = props;
+  const { pokemonName, imgSrc, handleRemoveFavorite } = props;
 
   const onFavoriteRemoveClick = () => {
-    console.log(props.id, "from box");
     handleRemoveFavorite(props.id);
   };
   return (

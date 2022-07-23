@@ -20,9 +20,6 @@ function PokemonsList(props) {
     dispatch(fetchPokemons());
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
-  // console.log(props, "props");
-  // console.log(props.pokemons.pokemonsList, "pokemonsList");
-  console.log(props.favorites, "favoritesList");
 
   const handleAddFavorite = (id, pokemon) => {
     let favoritePokemon = { [id]: pokemon };

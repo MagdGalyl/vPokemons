@@ -1,9 +1,8 @@
 import _ from "lodash";
 import {
-  // FETCH_POKEMONS,
   ADD_FAVORITE,
   RMV_FAVORITE,
-  // RMV_ALL_FAVORITES,
+  RMV_ALL_FAVORITES,
 } from "../actions/types";
 
 const initialState = {};
@@ -17,8 +16,8 @@ export default (state = initialState, { type, payload }) => {
     case RMV_FAVORITE:
       return _.omit(state, payload);
 
-    // case "RMV_ALL_FAV":
-    //   return [];
+    case RMV_ALL_FAVORITES:
+      return {};
 
     // case "TGL_FAV":
     //   return state.filter((st) => {
