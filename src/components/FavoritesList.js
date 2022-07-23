@@ -23,10 +23,11 @@ function FavoritesList(props) {
   // console.log(props, "props");
   // console.log(props.favorites, "favoritesList OOP");
 
-  // const handleRemoveFavorite = (id) => {
-  //   // let favoritePokemon = { [id]: pokemon };
-  //   props.addFavorite(props.id);
-  // };
+  const handleRemoveFavorite = (id) => {
+    // let favoritePokemon = { [id]: pokemon };
+    console.log(id, "from list");
+    props.removeFavorite(id);
+  };
 
   const renderFavList = () => {
     return Object.values(props.favorites).map((pokemon) => {
@@ -39,7 +40,7 @@ function FavoritesList(props) {
             pokemonName={pokemonName}
             imgSrc={img}
             pokemon={pokemon}
-            // handleRemoveFavorite={handleRemoveFavorite}
+            handleRemoveFavorite={handleRemoveFavorite}
           />
         </div>
       );
@@ -88,7 +89,6 @@ function FavoritesList(props) {
             variant="outline"
             bg="whiteAlpha.900"
             _hover={{ bg: "red", color: "white" }}
-            // onClick={onFavoriteClick}
           >
             <Center>
               <Text>Remove All</Text>

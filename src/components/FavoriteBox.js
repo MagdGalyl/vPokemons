@@ -13,6 +13,11 @@ import {
 
 function FavoriteBox(props) {
   const { id, pokemonName, imgSrc, handleRemoveFavorite } = props;
+
+  const onFavoriteRemoveClick = () => {
+    console.log(props.id, "from box");
+    handleRemoveFavorite(props.id);
+  };
   return (
     <div>
       <Flex
@@ -39,7 +44,11 @@ function FavoriteBox(props) {
         </Box>
         <Spacer />
         <Box>
-          <Button colorScheme="red" variant="ghost">
+          <Button
+            colorScheme="red"
+            variant="ghost"
+            onClick={onFavoriteRemoveClick}
+          >
             Remove
           </Button>
         </Box>
